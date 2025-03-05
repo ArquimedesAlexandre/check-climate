@@ -33,11 +33,14 @@
  //}
 
  function showWheatherdata(city) {
-    console.log(city)
+    getweatherdata(city)
  }
 
  const getweatherdata = async(city) => {
 
-    const Apiurl = `^https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apikey}&lang=pt_br`
-
+    const Apiurl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apikey}&lang=pt_br`
+    const res =  await fetch(Apiurl)
+    const data= await res.json()
+    
+    console.log(data)
  } 
