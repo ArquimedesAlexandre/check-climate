@@ -6,9 +6,38 @@
  const cityinput = document.querySelector("#city-input");
  const searchBtn = document.querySelector("#search");
 
+
+ const cityElement = document.querySelector("#city")
+ const tempElement = document.querySelector("#temperature span")
+ const countryElement = document.querySelector("#country")
+ const descriptionElement = document.querySelector("#description")
+ const umidityElement = document.querySelector("#umidity span")
+ const windElement = document.querySelector("#wind span")
+ const wheathericonElement = document.querySelector("#weather-icon")
+
+
+
  // eventos
  searchBtn.addEventListener("click",(e) =>{
     const city = cityinput.value;
     e.preventDefault();
-    console.log(city);
+    showWheatherdata(city);
  });
+
+
+
+ // funcoes
+
+  //const  showwatherdatte = (city) => {
+    
+ //}
+
+ function showWheatherdata(city) {
+    console.log(city)
+ }
+
+ const getweatherdata = async(city) => {
+
+    const Apiurl = `^https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apikey}&lang=pt_br`
+
+ } 
