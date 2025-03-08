@@ -32,8 +32,16 @@
     
  //}
 
- function showWheatherdata(city) {
+ const showWheatherdata = async(city) => {
+
+   const data = await getweatherdata(city);
     getweatherdata(city)
+ 
+    ShowHideLoader()
+
+    cityElement.innerText = data.name;
+    tempElement.innerText = parseInt(data.main.temp)
+    descriptionElement.innerText = data.weather[0].descriptionElement
  }
 
  const getweatherdata = async(city) => {
@@ -42,5 +50,13 @@
     const res =  await fetch(Apiurl)
     const data= await res.json()
     
-    console.log(data)
+    return data;
  } 
+
+ const ShowHideLoader = () => {
+   
+   const fadeElement =  document.querySelector("#fade")
+
+   fadeElement.classList.toggle("fade")
+
+ }
